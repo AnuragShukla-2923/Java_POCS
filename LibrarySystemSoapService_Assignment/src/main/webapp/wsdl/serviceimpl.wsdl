@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ServiceImplService" targetNamespace="http://service.entitiy.service.library.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://service.entitiy.service.library.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://service.entitiy.service.library.com/" version="1.0" xmlns:tns="http://service.entitiy.service.library.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="allAvailableBooks" type="tns:allAvailableBooks"/>
+
+  <xs:element name="allAvailableBooksResponse" type="tns:allAvailableBooksResponse"/>
+
+  <xs:element name="allBooks" type="tns:allBooks"/>
+
+  <xs:element name="allBooksResponse" type="tns:allBooksResponse"/>
+
+  <xs:element name="allUnAvailableBooks" type="tns:allUnAvailableBooks"/>
+
+  <xs:element name="allUnAvailableBooksResponse" type="tns:allUnAvailableBooksResponse"/>
+
+  <xs:element name="bookById" type="tns:bookById"/>
+
+  <xs:element name="bookByIdResponse" type="tns:bookByIdResponse"/>
+
+  <xs:element name="createBookList" type="tns:createBookList"/>
+
+  <xs:element name="createBookListResponse" type="tns:createBookListResponse"/>
+
+  <xs:element name="createBookStatusEntry" type="tns:createBookStatusEntry"/>
+
+  <xs:element name="createBookStatusEntryResponse" type="tns:createBookStatusEntryResponse"/>
+
+  <xs:element name="deleteBookEntry" type="tns:deleteBookEntry"/>
+
+  <xs:element name="deleteBookEntryResponse" type="tns:deleteBookEntryResponse"/>
+
+  <xs:element name="deleteBookbyId" type="tns:deleteBookbyId"/>
+
+  <xs:element name="deleteBookbyIdResponse" type="tns:deleteBookbyIdResponse"/>
+
+  <xs:element name="getAllBooks" type="tns:getAllBooks"/>
+
+  <xs:element name="getAllBooksResponse" type="tns:getAllBooksResponse"/>
+
+  <xs:element name="getAllByTakenDate" type="tns:getAllByTakenDate"/>
+
+  <xs:element name="getAllByTakenDateResponse" type="tns:getAllByTakenDateResponse"/>
+
+  <xs:element name="getByAuthorName" type="tns:getByAuthorName"/>
+
+  <xs:element name="getByAuthorNameResponse" type="tns:getByAuthorNameResponse"/>
+
+  <xs:element name="getByBookId" type="tns:getByBookId"/>
+
+  <xs:element name="getByBookIdResponse" type="tns:getByBookIdResponse"/>
+
+  <xs:element name="getByBookName" type="tns:getByBookName"/>
+
+  <xs:element name="getByBookNameResponse" type="tns:getByBookNameResponse"/>
+
+  <xs:element name="getByIssueId" type="tns:getByIssueId"/>
+
+  <xs:element name="getByIssueIdResponse" type="tns:getByIssueIdResponse"/>
+
+  <xs:element name="getByReturnDate" type="tns:getByReturnDate"/>
+
+  <xs:element name="getByReturnDateResponse" type="tns:getByReturnDateResponse"/>
+
+  <xs:element name="updateEntry" type="tns:updateEntry"/>
+
+  <xs:element name="updateEntryResponse" type="tns:updateEntryResponse"/>
+
+  <xs:complexType name="getByIssueId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getByIssueIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:bookStatus"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="bookStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bookId" type="xs:string"/>
+      <xs:element minOccurs="0" name="bookName" type="xs:string"/>
+      <xs:element minOccurs="0" name="contactNo" type="xs:string"/>
+      <xs:element minOccurs="0" name="issueDate" type="xs:string"/>
+      <xs:element minOccurs="0" name="issueId" type="xs:string"/>
+      <xs:element minOccurs="0" name="issuedAddress" type="xs:string"/>
+      <xs:element minOccurs="0" name="issuedFor" type="xs:string"/>
+      <xs:element minOccurs="0" name="returnedDate" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="createBookStatusEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:bookStatus"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="createBookStatusEntryResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getByBookId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getByBookIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:bookStatus"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllByTakenDate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllByTakenDateResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:bookStatus"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="allBooks">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="allBooksResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:bookList"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="bookList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="authorName" type="xs:string"/>
+      <xs:element minOccurs="0" name="bookId" type="xs:string"/>
+      <xs:element minOccurs="0" name="bookName" type="xs:string"/>
+      <xs:element minOccurs="0" name="status" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getByAuthorName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getByAuthorNameResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:bookList"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllBooks">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getAllBooksResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:bookStatus"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="allAvailableBooks">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="allAvailableBooksResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:bookList"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="createBookList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:bookList"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="createBookListResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getByBookName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getByBookNameResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:bookList"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="updateEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="updateEntryResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="bookById">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="bookByIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:bookList"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="deleteBookbyId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="deleteBookbyIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="deleteBookEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="deleteBookEntryResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="allUnAvailableBooks">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="allUnAvailableBooksResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:bookList"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getByReturnDate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getByReturnDateResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:bookStatus"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getByIssueId">
+    <wsdl:part name="parameters" element="tns:getByIssueId">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createBookStatusEntry">
+    <wsdl:part name="parameters" element="tns:createBookStatusEntry">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getByAuthorName">
+    <wsdl:part name="parameters" element="tns:getByAuthorName">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteBookEntryResponse">
+    <wsdl:part name="parameters" element="tns:deleteBookEntryResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="allUnAvailableBooksResponse">
+    <wsdl:part name="parameters" element="tns:allUnAvailableBooksResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="bookByIdResponse">
+    <wsdl:part name="parameters" element="tns:bookByIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createBookList">
+    <wsdl:part name="parameters" element="tns:createBookList">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllByTakenDateResponse">
+    <wsdl:part name="parameters" element="tns:getAllByTakenDateResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getByBookNameResponse">
+    <wsdl:part name="parameters" element="tns:getByBookNameResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getByReturnDateResponse">
+    <wsdl:part name="parameters" element="tns:getByReturnDateResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateEntryResponse">
+    <wsdl:part name="parameters" element="tns:updateEntryResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="bookById">
+    <wsdl:part name="parameters" element="tns:bookById">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteBookbyId">
+    <wsdl:part name="parameters" element="tns:deleteBookbyId">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="allUnAvailableBooks">
+    <wsdl:part name="parameters" element="tns:allUnAvailableBooks">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getByReturnDate">
+    <wsdl:part name="parameters" element="tns:getByReturnDate">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createBookStatusEntryResponse">
+    <wsdl:part name="parameters" element="tns:createBookStatusEntryResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllBooksResponse">
+    <wsdl:part name="parameters" element="tns:getAllBooksResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getByBookId">
+    <wsdl:part name="parameters" element="tns:getByBookId">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteBookbyIdResponse">
+    <wsdl:part name="parameters" element="tns:deleteBookbyIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllByTakenDate">
+    <wsdl:part name="parameters" element="tns:getAllByTakenDate">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="allBooks">
+    <wsdl:part name="parameters" element="tns:allBooks">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllBooks">
+    <wsdl:part name="parameters" element="tns:getAllBooks">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getByAuthorNameResponse">
+    <wsdl:part name="parameters" element="tns:getByAuthorNameResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="allAvailableBooks">
+    <wsdl:part name="parameters" element="tns:allAvailableBooks">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="allAvailableBooksResponse">
+    <wsdl:part name="parameters" element="tns:allAvailableBooksResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="allBooksResponse">
+    <wsdl:part name="parameters" element="tns:allBooksResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getByBookName">
+    <wsdl:part name="parameters" element="tns:getByBookName">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateEntry">
+    <wsdl:part name="parameters" element="tns:updateEntry">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getByBookIdResponse">
+    <wsdl:part name="parameters" element="tns:getByBookIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getByIssueIdResponse">
+    <wsdl:part name="parameters" element="tns:getByIssueIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createBookListResponse">
+    <wsdl:part name="parameters" element="tns:createBookListResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteBookEntry">
+    <wsdl:part name="parameters" element="tns:deleteBookEntry">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ServiceImpl">
+    <wsdl:operation name="getByIssueId">
+      <wsdl:input name="getByIssueId" message="tns:getByIssueId">
+    </wsdl:input>
+      <wsdl:output name="getByIssueIdResponse" message="tns:getByIssueIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createBookStatusEntry">
+      <wsdl:input name="createBookStatusEntry" message="tns:createBookStatusEntry">
+    </wsdl:input>
+      <wsdl:output name="createBookStatusEntryResponse" message="tns:createBookStatusEntryResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getByBookId">
+      <wsdl:input name="getByBookId" message="tns:getByBookId">
+    </wsdl:input>
+      <wsdl:output name="getByBookIdResponse" message="tns:getByBookIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllByTakenDate">
+      <wsdl:input name="getAllByTakenDate" message="tns:getAllByTakenDate">
+    </wsdl:input>
+      <wsdl:output name="getAllByTakenDateResponse" message="tns:getAllByTakenDateResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="allBooks">
+      <wsdl:input name="allBooks" message="tns:allBooks">
+    </wsdl:input>
+      <wsdl:output name="allBooksResponse" message="tns:allBooksResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getByAuthorName">
+      <wsdl:input name="getByAuthorName" message="tns:getByAuthorName">
+    </wsdl:input>
+      <wsdl:output name="getByAuthorNameResponse" message="tns:getByAuthorNameResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllBooks">
+      <wsdl:input name="getAllBooks" message="tns:getAllBooks">
+    </wsdl:input>
+      <wsdl:output name="getAllBooksResponse" message="tns:getAllBooksResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="allAvailableBooks">
+      <wsdl:input name="allAvailableBooks" message="tns:allAvailableBooks">
+    </wsdl:input>
+      <wsdl:output name="allAvailableBooksResponse" message="tns:allAvailableBooksResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createBookList">
+      <wsdl:input name="createBookList" message="tns:createBookList">
+    </wsdl:input>
+      <wsdl:output name="createBookListResponse" message="tns:createBookListResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getByBookName">
+      <wsdl:input name="getByBookName" message="tns:getByBookName">
+    </wsdl:input>
+      <wsdl:output name="getByBookNameResponse" message="tns:getByBookNameResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateEntry">
+      <wsdl:input name="updateEntry" message="tns:updateEntry">
+    </wsdl:input>
+      <wsdl:output name="updateEntryResponse" message="tns:updateEntryResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bookById">
+      <wsdl:input name="bookById" message="tns:bookById">
+    </wsdl:input>
+      <wsdl:output name="bookByIdResponse" message="tns:bookByIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteBookbyId">
+      <wsdl:input name="deleteBookbyId" message="tns:deleteBookbyId">
+    </wsdl:input>
+      <wsdl:output name="deleteBookbyIdResponse" message="tns:deleteBookbyIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteBookEntry">
+      <wsdl:input name="deleteBookEntry" message="tns:deleteBookEntry">
+    </wsdl:input>
+      <wsdl:output name="deleteBookEntryResponse" message="tns:deleteBookEntryResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="allUnAvailableBooks">
+      <wsdl:input name="allUnAvailableBooks" message="tns:allUnAvailableBooks">
+    </wsdl:input>
+      <wsdl:output name="allUnAvailableBooksResponse" message="tns:allUnAvailableBooksResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getByReturnDate">
+      <wsdl:input name="getByReturnDate" message="tns:getByReturnDate">
+    </wsdl:input>
+      <wsdl:output name="getByReturnDateResponse" message="tns:getByReturnDateResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceImplServiceSoapBinding" type="tns:ServiceImpl">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getByIssueId">
+      <soap12:operation soapAction="urn:GetByIssueId" style="document"/>
+      <wsdl:input name="getByIssueId">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getByIssueIdResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createBookStatusEntry">
+      <soap12:operation soapAction="urn:CreateBookStatusEntry" style="document"/>
+      <wsdl:input name="createBookStatusEntry">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createBookStatusEntryResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getByBookId">
+      <soap12:operation soapAction="urn:GetByBookId" style="document"/>
+      <wsdl:input name="getByBookId">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getByBookIdResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllByTakenDate">
+      <soap12:operation soapAction="urn:GetAllByTakenDate" style="document"/>
+      <wsdl:input name="getAllByTakenDate">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllByTakenDateResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="allBooks">
+      <soap12:operation soapAction="urn:AllBooks" style="document"/>
+      <wsdl:input name="allBooks">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="allBooksResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getByAuthorName">
+      <soap12:operation soapAction="urn:GetByAuthorName" style="document"/>
+      <wsdl:input name="getByAuthorName">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getByAuthorNameResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllBooks">
+      <soap12:operation soapAction="urn:GetAllBooks" style="document"/>
+      <wsdl:input name="getAllBooks">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllBooksResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="allAvailableBooks">
+      <soap12:operation soapAction="urn:AllAvailableBooks" style="document"/>
+      <wsdl:input name="allAvailableBooks">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="allAvailableBooksResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createBookList">
+      <soap12:operation soapAction="urn:CreateBookList" style="document"/>
+      <wsdl:input name="createBookList">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createBookListResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getByBookName">
+      <soap12:operation soapAction="urn:GetByBookName" style="document"/>
+      <wsdl:input name="getByBookName">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getByBookNameResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateEntry">
+      <soap12:operation soapAction="urn:UpdateEntry" style="document"/>
+      <wsdl:input name="updateEntry">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateEntryResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bookById">
+      <soap12:operation soapAction="urn:BookById" style="document"/>
+      <wsdl:input name="bookById">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="bookByIdResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteBookbyId">
+      <soap12:operation soapAction="urn:DeleteBookbyId" style="document"/>
+      <wsdl:input name="deleteBookbyId">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteBookbyIdResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteBookEntry">
+      <soap12:operation soapAction="urn:DeleteBookEntry" style="document"/>
+      <wsdl:input name="deleteBookEntry">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteBookEntryResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="allUnAvailableBooks">
+      <soap12:operation soapAction="urn:AllUnAvailableBooks" style="document"/>
+      <wsdl:input name="allUnAvailableBooks">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="allUnAvailableBooksResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getByReturnDate">
+      <soap12:operation soapAction="urn:GetByReturnDate" style="document"/>
+      <wsdl:input name="getByReturnDate">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getByReturnDateResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceImplService">
+    <wsdl:port name="ServiceImplPort" binding="tns:ServiceImplServiceSoapBinding">
+      <soap12:address location="http://localhost:9080/LibrarySystemSoapService_Assignment/services"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

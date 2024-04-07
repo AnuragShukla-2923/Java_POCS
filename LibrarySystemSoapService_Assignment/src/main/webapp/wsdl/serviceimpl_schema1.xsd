@@ -1,0 +1,274 @@
+<xs:schema xmlns:tns="http://service.entitiy.service.library.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://service.entitiy.service.library.com/" version="1.0">
+
+  <xs:element name="allAvailableBooks" type="tns:allAvailableBooks"/>
+
+  <xs:element name="allAvailableBooksResponse" type="tns:allAvailableBooksResponse"/>
+
+  <xs:element name="allBooks" type="tns:allBooks"/>
+
+  <xs:element name="allBooksResponse" type="tns:allBooksResponse"/>
+
+  <xs:element name="allUnAvailableBooks" type="tns:allUnAvailableBooks"/>
+
+  <xs:element name="allUnAvailableBooksResponse" type="tns:allUnAvailableBooksResponse"/>
+
+  <xs:element name="bookById" type="tns:bookById"/>
+
+  <xs:element name="bookByIdResponse" type="tns:bookByIdResponse"/>
+
+  <xs:element name="createBookList" type="tns:createBookList"/>
+
+  <xs:element name="createBookListResponse" type="tns:createBookListResponse"/>
+
+  <xs:element name="createBookStatusEntry" type="tns:createBookStatusEntry"/>
+
+  <xs:element name="createBookStatusEntryResponse" type="tns:createBookStatusEntryResponse"/>
+
+  <xs:element name="deleteBookEntry" type="tns:deleteBookEntry"/>
+
+  <xs:element name="deleteBookEntryResponse" type="tns:deleteBookEntryResponse"/>
+
+  <xs:element name="deleteBookbyId" type="tns:deleteBookbyId"/>
+
+  <xs:element name="deleteBookbyIdResponse" type="tns:deleteBookbyIdResponse"/>
+
+  <xs:element name="getAllBooks" type="tns:getAllBooks"/>
+
+  <xs:element name="getAllBooksResponse" type="tns:getAllBooksResponse"/>
+
+  <xs:element name="getAllByTakenDate" type="tns:getAllByTakenDate"/>
+
+  <xs:element name="getAllByTakenDateResponse" type="tns:getAllByTakenDateResponse"/>
+
+  <xs:element name="getByAuthorName" type="tns:getByAuthorName"/>
+
+  <xs:element name="getByAuthorNameResponse" type="tns:getByAuthorNameResponse"/>
+
+  <xs:element name="getByBookId" type="tns:getByBookId"/>
+
+  <xs:element name="getByBookIdResponse" type="tns:getByBookIdResponse"/>
+
+  <xs:element name="getByBookName" type="tns:getByBookName"/>
+
+  <xs:element name="getByBookNameResponse" type="tns:getByBookNameResponse"/>
+
+  <xs:element name="getByIssueId" type="tns:getByIssueId"/>
+
+  <xs:element name="getByIssueIdResponse" type="tns:getByIssueIdResponse"/>
+
+  <xs:element name="getByReturnDate" type="tns:getByReturnDate"/>
+
+  <xs:element name="getByReturnDateResponse" type="tns:getByReturnDateResponse"/>
+
+  <xs:element name="updateEntry" type="tns:updateEntry"/>
+
+  <xs:element name="updateEntryResponse" type="tns:updateEntryResponse"/>
+
+  <xs:complexType name="getByIssueId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getByIssueIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:bookStatus"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="bookStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bookId" type="xs:string"/>
+      <xs:element minOccurs="0" name="bookName" type="xs:string"/>
+      <xs:element minOccurs="0" name="contactNo" type="xs:string"/>
+      <xs:element minOccurs="0" name="issueDate" type="xs:string"/>
+      <xs:element minOccurs="0" name="issueId" type="xs:string"/>
+      <xs:element minOccurs="0" name="issuedAddress" type="xs:string"/>
+      <xs:element minOccurs="0" name="issuedFor" type="xs:string"/>
+      <xs:element minOccurs="0" name="returnedDate" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="createBookStatusEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:bookStatus"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="createBookStatusEntryResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getByBookId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getByBookIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:bookStatus"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllByTakenDate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllByTakenDateResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:bookStatus"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="allBooks">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="allBooksResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:bookList"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="bookList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="authorName" type="xs:string"/>
+      <xs:element minOccurs="0" name="bookId" type="xs:string"/>
+      <xs:element minOccurs="0" name="bookName" type="xs:string"/>
+      <xs:element minOccurs="0" name="status" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getByAuthorName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getByAuthorNameResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:bookList"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllBooks">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getAllBooksResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:bookStatus"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="allAvailableBooks">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="allAvailableBooksResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:bookList"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="createBookList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:bookList"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="createBookListResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getByBookName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getByBookNameResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:bookList"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="updateEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="updateEntryResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="bookById">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="bookByIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:bookList"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="deleteBookbyId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="deleteBookbyIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="deleteBookEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="deleteBookEntryResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="allUnAvailableBooks">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="allUnAvailableBooksResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:bookList"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getByReturnDate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getByReturnDateResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:bookStatus"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
